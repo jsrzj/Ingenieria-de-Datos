@@ -1,0 +1,44 @@
+# 🗂️ Capa RAW / Landing
+
+## 🎯 Objetivo
+Almacenar los datos tal como llegan desde la capa de ingesta, sin realizar transformaciones significativas, conservando la información original para futuras consultas, auditorías o reprocesamientos.
+
+## ⚙️ Funciones
+- Guardar datos en su estado original.
+- Mantener un histórico completo de la información.
+- Facilitar auditorías y trazabilidad.
+- Permitir reprocesamientos cuando sea necesario.
+- Organizar los datos mediante carpetas o particiones.
+
+## 🌐 Open Source
+- Hadoop HDFS
+- MinIO
+- Delta Lake
+- Apache Iceberg
+
+## 💰 Tecnologías de Pago
+- Amazon S3
+- Snowflake Stage
+- Databricks Storage
+- Google Cloud Storage
+
+## ☁️ Azure / Microsoft
+- Azure Data Lake Storage Gen2
+- Azure Blob Storage
+- Microsoft Fabric OneLake
+- Azure Storage Accounts
+
+## 📝 Ejemplo
+
+Una empresa recibe diariamente:
+
+- Ventas en archivos CSV.
+- Registros web en formato JSON.
+- Datos de sensores IoT.
+- Información procedente de APIs.
+
+Todos estos datos se almacenan en Azure Data Lake Storage Gen2 manteniendo su formato original y organizándolos por fecha para conservar un histórico completo.
+
+## 🔑 Idea clave
+
+La capa RAW es el **almacén histórico de datos sin procesar**, donde se conserva la información exactamente como fue recibida para garantizar trazabilidad, auditoría y recuperación.
