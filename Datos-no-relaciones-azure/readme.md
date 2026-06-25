@@ -84,6 +84,6 @@ Los **blobs de anexo** son una variante de los blobs de bloques optimizada para 
 - Auditorías.
 - Eventos generados continuamente.
 
-
+![Img](DOC/azure-blob-types.png)
 
 ---
