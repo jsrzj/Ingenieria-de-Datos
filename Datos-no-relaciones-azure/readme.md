@@ -223,6 +223,6 @@ Esto resulta útil para:
 - Mejorar la disponibilidad de las aplicaciones.
 - Mantener el acceso a los datos durante incidencias en la región principal.
 
-![Img](azure-storage-redundancy.png)
+![Img](DOC/azure-storage-redundancy.png)
 
 ---
