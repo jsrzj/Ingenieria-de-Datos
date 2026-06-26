@@ -226,3 +226,15 @@ Esto resulta útil para:
 ![Img](DOC/azure-storage-redundancy.png)
 
 ---
+
+# Explore Azure Data Lake Storage Gen2
+
+Azure Data Lake Storage Gen2 es una solución de data lake a escala en la nube integrada en Azure Storage. Combina la escalabilidad y el control de costes de Azure Blob Storage —incluyendo niveles de almacenamiento y gestión del ciclo de vida— con un sistema de archivos jerárquico compatible con los principales sistemas analíticos.
+
+![Img](DOC/azure-data-lake.png)
+
+Sistemas como Azure Databricks pueden montar un sistema de archivos distribuido alojado en Azure Data Lake Storage Gen2 y utilizarlo para procesar enormes volúmenes de datos. Los tenants de Microsoft Fabric provisionan automáticamente OneLake, que se construye sobre Azure Data Lake Storage Gen2.
+
+El espacio de nombres jerárquico también permite listas de control de acceso (ACLs) compatibles con POSIX, por lo que puedes establecer permisos de lectura, escritura y ejecución de grano fino en archivos y carpetas individuales, separados del modelo más amplio de control de acceso basado en roles (RBAC) de Azure.
+
+Para crear un sistema de archivos Azure Data Lake Storage Gen2, debes habilitar la opción de Espacio de nombres Jerárquico de una cuenta de Azure Storage. Puedes hacer esto al crear inicialmente la cuenta de almacenamiento, o puedes actualizar una cuenta de Azure Storage existente para que soporte un espacio de nombres jerárquico. Ten en cuenta que actualizar es un proceso unidireccional: después de actualizar, no puedes revertir la cuenta de almacenamiento a un espacio de nombres plano.
