@@ -86,4 +86,77 @@ Los **blobs de anexo** son una variante de los blobs de bloques optimizada para 
 
 ![Img](DOC/azure-blob-types.png)
 
+## Niveles de acceso de Azure Blob Storage
+
+Azure Blob Storage ofrece **cuatro niveles de acceso** que permiten equilibrar el coste de almacenamiento y la velocidad de acceso a los datos.
+
+### Nivel Hot (Caliente)
+
+Es el **nivel predeterminado** y está diseñado para blobs a los que se accede con frecuencia.
+
+**Características:**
+
+- Almacenamiento en medios de alto rendimiento.
+- Baja latencia de acceso.
+- Mayor coste de almacenamiento.
+- Menor coste por operaciones de lectura.
+
+**Casos de uso:**
+
+- Datos utilizados diariamente.
+- Archivos de aplicaciones activas.
+- Contenido multimedia de uso frecuente.
+
+### Nivel Cool (Frío)
+
+Está pensado para datos que se consultan con poca frecuencia, pero que aún deben estar disponibles rápidamente.
+
+**Características:**
+
+- Menor coste de almacenamiento que el nivel Hot.
+- Mayor coste de acceso a los datos.
+- Los datos deben permanecer al menos **30 días** para evitar penalizaciones por eliminación anticipada.
+- Los blobs pueden moverse entre los niveles **Hot** y **Cool** cuando cambian los patrones de acceso.
+
+**Casos de uso:**
+
+- Archivos que dejan de utilizarse con frecuencia.
+- Copias de seguridad recientes.
+- Documentos de consulta ocasional.
+
+### Nivel Cold
+
+El nivel **Cold** está optimizado para almacenar datos que rara vez se acceden o modifican, pero que aún requieren una recuperación relativamente rápida.
+
+**Características:**
+
+- Coste de almacenamiento inferior al nivel Cool.
+- Coste de acceso superior al nivel Cool.
+- Los datos deben permanecer un mínimo de **90 días** para evitar penalizaciones por eliminación anticipada.
+
+**Casos de uso:**
+
+- Copias de seguridad a corto plazo.
+- Datos para recuperación ante desastres.
+- Grandes volúmenes de información que necesitan un almacenamiento económico.
+
+### Nivel Archive (Archivo)
+
+Es el nivel con el **menor coste de almacenamiento**, pero también con la **mayor latencia de acceso**.
+
+**Características:**
+
+- Diseñado para datos históricos o de archivo.
+- Los datos permanecen almacenados **offline**.
+- Deben mantenerse al menos **180 días** para evitar penalizaciones por eliminación anticipada.
+- La recuperación puede tardar **hasta 15 horas**.
+
+Para acceder a un blob archivado, primero es necesario cambiar su nivel de acceso a **Hot**, **Cool** o **Cold**. Este proceso se conoce como **rehidratación** (*rehydration*), y el blob solo estará disponible una vez finalice.
+
+**Casos de uso:**
+
+- Datos históricos.
+- Registros que deben conservarse por motivos legales.
+- Información a la que se accede muy raramente.
+
 ---
