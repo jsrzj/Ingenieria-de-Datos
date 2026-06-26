@@ -238,3 +238,22 @@ Sistemas como Azure Databricks pueden montar un sistema de archivos distribuido 
 El espacio de nombres jerárquico también permite listas de control de acceso (ACLs) compatibles con POSIX, por lo que puedes establecer permisos de lectura, escritura y ejecución de grano fino en archivos y carpetas individuales, separados del modelo más amplio de control de acceso basado en roles (RBAC) de Azure.
 
 Para crear un sistema de archivos Azure Data Lake Storage Gen2, debes habilitar la opción de Espacio de nombres Jerárquico de una cuenta de Azure Storage. Puedes hacer esto al crear inicialmente la cuenta de almacenamiento, o puedes actualizar una cuenta de Azure Storage existente para que soporte un espacio de nombres jerárquico. Ten en cuenta que actualizar es un proceso unidireccional: después de actualizar, no puedes revertir la cuenta de almacenamiento a un espacio de nombres plano.
+
+---
+
+# Explora Microsoft OneLake en Fabric
+
+Microsoft Fabric proviene automáticamente OneLake, basado en Azure Data Lake Gen 2.
+
+![Img](DOC/onelake-foundation-for-fabric.png)
+
+OneLake es un único lago de datos unificado y lógico diseñado para toda tu organización. OneLake viene automáticamente con todos los tenants de Microsoft Fabric y sirve como el repositorio central de todos tus datos de analítica. Ya sea estructurado o no, OneLake soporta cualquier tipo de archivo y permite usar los mismos datos a través de múltiples motores analíticos sin movimientos ni duplicaciones de datos.
+
+Principales beneficios de OneLake
+Lago de datos a nivel organizativo Antes de OneLake, era común crear múltiples data lakes para diferentes grupos empresariales. Ahora, OneLake ofrece una solución colaborativa, asegurando que toda tu organización comparta un único lago de datos.
+
+Propiedad distribuida y colaboración Dentro de un inquilino, puedes crear espacios de trabajo, permitiendo que diferentes partes de tu organización gestionen sus datos. Esta propiedad distribuida fomenta la colaboración manteniendo los límites de gobernanza.
+
+Abierto y compatible Construido sobre Azure Data Lake Storage (ADLS) Gen2, OneLake almacena datos en formato Delta Parquet, un formato de archivo abierto y eficiente ampliamente utilizado para datos analíticos. Soporta las APIs y SDKs ADLS Gen2 existentes, lo que lo hace compatible con tus aplicaciones actuales.
+
+Fácil de navegar Es sencillo navegar por los datos de OneLake desde Windows usando el explorador de archivos de OneLake.
