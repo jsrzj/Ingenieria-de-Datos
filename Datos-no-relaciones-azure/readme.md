@@ -257,3 +257,27 @@ Propiedad distribuida y colaboración Dentro de un inquilino, puedes crear espac
 Abierto y compatible Construido sobre Azure Data Lake Storage (ADLS) Gen2, OneLake almacena datos en formato Delta Parquet, un formato de archivo abierto y eficiente ampliamente utilizado para datos analíticos. Soporta las APIs y SDKs ADLS Gen2 existentes, lo que lo hace compatible con tus aplicaciones actuales.
 
 Fácil de navegar Es sencillo navegar por los datos de OneLake desde Windows usando el explorador de archivos de OneLake.
+
+---
+
+# Explorar Azure Files
+
+Muchos sistemas locales que comprenden una red de ordenadores internos utilizan compartición de archivos. Un recurso compartido permite almacenar un archivo en un ordenador y conceder acceso a ese archivo a usuarios y aplicaciones que se ejecuten en otros ordenadores. Esta estrategia puede funcionar bien para ordenadores en la misma red local, pero no escala bien a medida que aumenta el número de usuarios o si los usuarios están ubicados en diferentes sitios.
+
+Azure Files es esencialmente una forma de crear compartidos de red basados en la nube, como los que suele encontrarse en organizaciones locales, para poner documentos y otros archivos a disposición de múltiples usuarios. Al alojar compartidos de archivos en Azure, las organizaciones pueden eliminar costes de hardware y gastos de mantenimiento, y beneficiarse de una alta disponibilidad y almacenamiento escalable en la nube para los archivos.
+
+![Img](DOC/azure-files.png)
+
+Creas almacenamiento de archivos en Azure en una cuenta de almacenamiento. Azure Files te permite compartir grandes cantidades de datos en una sola cuenta de almacenamiento — hasta 256 TiB para cuentas basadas en SSD, y aún más para cuentas basadas en HDD. Estos datos pueden distribuirse entre cualquier número de archivos compartidos en la cuenta. El tamaño máximo de un único archivo es de 4 TiB, pero puedes establecer cuotas para limitar el tamaño de cada acción por debajo de esta cifra. Actualmente, Azure File Storage soporta hasta 2.000 handle concurrentes por archivo o directorio.
+
+Después de crear una cuenta de almacenamiento, puedes subir archivos a Azure File Storage usando el portal Azure o herramientas como la utilidad AzCopy. También puedes usar el servicio Azure File Sync para sincronizar copias en caché local de archivos compartidos con los datos en Azure File Storage.
+
+![Img](DOC/azure-files-architecture.png)l
+
+Azure File Storage ofrece dos niveles de medios. La capa HDD utiliza hardware basado en discos duros en un centro de datos, y la capa SSD utiliza discos de estado sólido. El nivel SSD ofrece mayor capacidad de rendimiento, pero se cobra a un precio más alto.
+
+Azure Files soporta dos protocolos comunes de intercambio de archivos en red:
+
+El intercambio de archivos Server Message Block (SMB) se utiliza comúnmente en varios sistemas operativos (Windows, Linux, macOS).
+
+Los recursos compartidos del Sistema de Archivos de Red (NFS) son usados por Linux (kernel 4.3 o posterior). Los compartidas de archivos NFS Azure no son compatibles en Windows ni macOS. Para crear un recurso compartido NFS, debes usar una cuenta de almacenamiento de nivel SSD y crear y configurar una red virtual a través de la cual se pueda controlar el acceso al conjunto.
