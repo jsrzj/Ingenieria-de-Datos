@@ -281,3 +281,25 @@ Azure Files soporta dos protocolos comunes de intercambio de archivos en red:
 El intercambio de archivos Server Message Block (SMB) se utiliza comúnmente en varios sistemas operativos (Windows, Linux, macOS).
 
 Los recursos compartidos del Sistema de Archivos de Red (NFS) son usados por Linux (kernel 4.3 o posterior). Los compartidas de archivos NFS Azure no son compatibles en Windows ni macOS. Para crear un recurso compartido NFS, debes usar una cuenta de almacenamiento de nivel SSD y crear y configurar una red virtual a través de la cual se pueda controlar el acceso al conjunto.
+
+---
+
+# Explore Azure Tables
+
+Azure Table Storage es una solución de almacenamiento NoSQL que utiliza tablas que contienen elementos clave/valor de datos. Cada elemento está representado por una fila que contiene columnas para los campos de datos que deben almacenarse.
+
+Sin embargo, no te dejes engañar pensando que una tabla de almacenamiento de tablas de Azure es como una tabla en una base de datos relacional. Una tabla Azure te permite almacenar datos semiestructurados. Todas las filas de una tabla deben tener una clave única (compuesta por una clave de partición y una clave de fila), y cuando se modifican datos en una tabla, una columna de marca de tiempo registra la fecha y hora en que se realizó la modificación; Pero aparte de eso, las columnas de cada fila pueden variar. Las tablas de almacenamiento de Azure Table no tienen concepto de claves foráneas, relaciones, procedimientos almacenados, vistas u otros objetos que puedas encontrar en una base de datos relacional.
+
+Los datos en el almacenamiento de Azure Table suelen estar desnormalizados, y cada fila contiene todos los datos para una entidad lógica. Por ejemplo, una tabla que contiene información del cliente podría almacenar el nombre de pila, el apellido, uno o más números de teléfono y una o más direcciones para cada cliente. El número de campos en cada fila puede variar, dependiendo del número de números de teléfono y direcciones para cada cliente, y de los detalles registrados para cada dirección. En una base de datos relacional, esta información se dividiría en varias filas de varias tablas.
+
+![Img](DOC/azure-tables.png)
+
+Para ayudar a garantizar un acceso rápido, Azure Table Storage divide una tabla en particiones. La partición es un mecanismo para agrupar filas relacionadas basándose en la PartitionKey — un valor que eliges para reflejar una propiedad compartida de filas relacionadas. Las filas que comparten la misma clave de partición se almacenan juntas. La partición no solo ayuda a organizar los datos, sino que también puede mejorar la escalabilidad y el rendimiento de las siguientes maneras:
+
+Las particiones son independientes entre sí y pueden crecer o reducirse a medida que se añaden filas o se eliminan de una partición. Una tabla puede contener cualquier número de particiones.
+
+Cuando buscas datos, puedes incluir la clave de partición en los criterios de búsqueda. Esto ayuda a reducir el volumen de datos a examinar y mejora el rendimiento al reducir la cantidad de E/S (operaciones de entrada y salida, o lecturas y escrituras) necesarias para localizar los datos.
+
+La clave en una tabla de almacenamiento de Azure Table consta de dos elementos; la clave de partición que identifica la partición que contiene la fila, y una clave de fila única para cada fila de la misma partición. Los elementos de la misma partición se almacenan en orden de fila de clave. Si una aplicación añade una nueva fila a una tabla, Azure se asegura de que la fila esté colocada en la posición correcta de la tabla. Este esquema permite a una aplicación realizar rápidamente consultas puntuales que identifican una sola fila, y consultas por rango que obtienen un bloque contiguo de filas en una partición.
+
+
