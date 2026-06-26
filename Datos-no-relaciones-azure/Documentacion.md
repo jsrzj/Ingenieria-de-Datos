@@ -1,3 +1,4 @@
+# Descubre Azure Storage para datos no relacionales
 # Introducción
 
 La mayoría de las aplicaciones de software necesitan almacenar datos. Con frecuencia, estos datos se almacenan en una base de datos relacional, donde la información se organiza en tablas relacionadas y se administra mediante el lenguaje **Structured Query Language (SQL)**.
