@@ -272,7 +272,7 @@ Creas almacenamiento de archivos en Azure en una cuenta de almacenamiento. Azure
 
 Después de crear una cuenta de almacenamiento, puedes subir archivos a Azure File Storage usando el portal Azure o herramientas como la utilidad AzCopy. También puedes usar el servicio Azure File Sync para sincronizar copias en caché local de archivos compartidos con los datos en Azure File Storage.
 
-![Img](DOC/azure-files-architecture.png)l
+![Img](DOC/azure-files-architecture.png)
 
 Azure File Storage ofrece dos niveles de medios. La capa HDD utiliza hardware basado en discos duros en un centro de datos, y la capa SSD utiliza discos de estado sólido. El nivel SSD ofrece mayor capacidad de rendimiento, pero se cobra a un precio más alto.
 
