@@ -159,4 +159,70 @@ Para acceder a un blob archivado, primero es necesario cambiar su nivel de acces
 - Registros que deben conservarse por motivos legales.
 - Información a la que se accede muy raramente.
 
+![Img](DOC/azure-blob-access-tiers.png)
+
+## Administración del ciclo de vida y redundancia de Azure Blob Storage
+
+Azure Blob Storage permite crear **políticas de administración del ciclo de vida** para automatizar la gestión de los blobs según su antigüedad y frecuencia de uso.
+
+Estas políticas pueden:
+
+- Mover automáticamente un blob del nivel **Hot** al nivel **Cool**, posteriormente al nivel **Cold** y finalmente al nivel **Archive**.
+- Basar las transiciones en el número de días transcurridos desde la última modificación del blob.
+- Eliminar automáticamente blobs obsoletos cuando ya no sean necesarios.
+
+Gracias a estas políticas es posible reducir los costes de almacenamiento sin necesidad de administrar manualmente los datos.
+
+## Opciones de redundancia
+
+Azure Storage incorpora diferentes opciones de **redundancia** para garantizar la alta disponibilidad y la protección de los datos frente a fallos.
+
+### LRS (Local Redundant Storage)
+
+El **Almacenamiento con Redundancia Local (LRS)** mantiene **tres copias** de los datos dentro de un único centro de datos.
+
+**Ventajas:**
+
+- Protección frente a fallos de hardware locales.
+- Es la opción más económica.
+
+### ZRS (Zone-Redundant Storage)
+
+El **Almacenamiento con Redundancia entre Zonas (ZRS)** replica los datos entre **tres zonas de disponibilidad** dentro de la región principal.
+
+**Ventajas:**
+
+- Los datos permanecen disponibles incluso si una zona completa deja de funcionar.
+- Mayor disponibilidad que LRS.
+
+### GRS (Geo-Redundant Storage)
+
+El **Almacenamiento con Redundancia Geográfica (GRS)** replica de forma asíncrona los datos a una **región secundaria**, situada a cientos de kilómetros de la región principal.
+
+**Ventajas:**
+
+- Protección frente a desastres que afecten a toda una región.
+- Permite recuperar los datos en caso de fallo regional.
+
+### GZRS (Geo-Zone-Redundant Storage)
+
+El **Almacenamiento con Redundancia Geográfica entre Zonas (GZRS)** combina las ventajas de **ZRS** y **GRS**.
+
+**Ventajas:**
+
+- Replica los datos entre varias zonas de disponibilidad de la región principal.
+- Además, mantiene una copia en una región secundaria para proteger frente a desastres regionales.
+
+### RA-GRS y RA-GZRS
+
+Las opciones **RA-GRS** (*Read-Access Geo-Redundant Storage*) y **RA-GZRS** permiten **leer datos desde la región secundaria** incluso antes de que se produzca un cambio por error (*failover*).
+
+Esto resulta útil para:
+
+- Consultas de solo lectura.
+- Mejorar la disponibilidad de las aplicaciones.
+- Mantener el acceso a los datos durante incidencias en la región principal.
+
+![Img](azure-storage-redundancy.png)
+
 ---
